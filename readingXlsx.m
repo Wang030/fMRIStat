@@ -1,9 +1,17 @@
-function data = readingXlsx()
+function data = readingXlsx(dataset)
 
-covariates = {'SITEID', 'MMSCORE', 'apoe', 'amyloid2', 'PTGENDER', 'PTEDUCAT', 'scanAge'};
-groups = {'cn', 'emci', 'lmci', 'ad'};
-dataset = 'adni';
-locationBase = '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2';
+switch dataset
+	case 'mcsa'
+		covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge'};
+		groups = {'cn', 'useless', 'mci', 'ad'};
+		locationBase = '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2';
+	case 'adni'
+		covariates = {'SITEID', 'apoe', 'PTGENDER', 'PTEDUCAT', 'scanAge'}; % 'amyloid' 'MMSCORE'
+		groups = {'cn', 'emci', 'lmci', 'ad'};
+		locationBase = '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2';
+	otherwise
+		error('Dataset not recognized. Please try again.');
+end
 
 [~,~,xlsx] = xlsread('Book1.xlsx');
 for i = 1:size(xlsx,2)
@@ -29,7 +37,11 @@ end
 for i = 1:size(xlsx,1)
     if ~strcmp(xlsx{i,colDataset},dataset); continue; end
     j = xlsx{i,colDiag};
-    data.(groups{j}).files{end+1,1} = [locationBase '/' xlsx{i,colFile}];
+    try
+        data.(groups{j}).files{end+1,1} = [locationBase '/' xlsx{i,colFile}];
+    catch ME
+        continue;
+    end
     covariatesRow = size(data.(groups{j}).covariates,1) + 1;
     for k = 1:length(colCovariates)
         try
