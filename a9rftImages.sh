@@ -1,29 +1,15 @@
 function determineDF () {
 	df=0
-	case "$i" in
-		*adni*)
-		case "$i" in
-			*1*)
-				df=`expr $df + 60`;;
-			*2*)
-				df=`expr $df + 53`;;
-			*3*)
-				df=`expr $df + 40`;;
-			*4*)
-				df=`expr $df + 37`;;
-		esac
-		;;
-		*mcsa*)
-		case "$i" in
-			*1*)
-				df=`expr $df + 17`;;
-			*3*)
-				df=`expr $df + 12`;;
-			*4*)
-				df=`expr $df + 9`;;
-		esac
-		;;
-	esac
+	if grep -q "adni" <<< "$i"; then
+		if grep -q "1" <<< "$i"; then df=`expr $df + 60`;;
+		if grep -q "2" <<< "$i"; then df=`expr $df + 53`;;
+		if grep -q "3" <<< "$i"; then df=`expr $df + 40`;;
+		if grep -q "4" <<< "$i"; then df=`expr $df + 37`;;
+	elif grep -q "mcsa" <<< "$i"; then
+		if grep -q "1" <<< "$i"; then df=`expr $df + 17`;;
+		if grep -q "3" <<< "$i"; then df=`expr $df + 12`;;
+		if grep -q "4" <<< "$i"; then df=`expr $df + 9`;;	
+	fi
 	df=`expr $df - 2`;
 }
 
