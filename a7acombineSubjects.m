@@ -1,19 +1,38 @@
 output = '/data/data03/wang/output2/';
-mcsa = {'/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0002_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0005_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0006_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0007_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0008_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0009_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0010_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0011_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0014_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0015_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0016_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0018_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0019_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0020_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0021_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0022_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2/subject0023_session1_multi_ef.mnc'};
-
-adni = {'/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject0186_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject0413_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject0685_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject0731_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject1261_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4021_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4026_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4032_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4150_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4213_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4225_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4257_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4262_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4269_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4270_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4313_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4343_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4345_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4349_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4352_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4357_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4367_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4369_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4371_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4399_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4400_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4422_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4433_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4442_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4449_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4469_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4474_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4485_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4496_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4578_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4579_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4580_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4616_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4727_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4731_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject4835_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5075_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5091_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5096_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5102_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5137_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5142_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5148_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5153_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5171_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5175_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5178_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5180_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5202_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5230_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5242_session1_multi_ef.mnc' '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2/subject5258_session1_multi_ef.mnc'};
+dataset = 'adni'; groups = {'cn', 'emci', 'lmci', 'ad'};
+data = readingXlsx(dataset);
 
 for seed = {'lA' 'lM' 'lP' 'rA' 'rM' 'rP'}
+	for patientGroup = groups
+		outputBase = [output '/' seed{1} '_' patientGroup{1} '_' dataset];
+		group_ef = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});
+		fwhm_varatio = -100;
 
-outputBase = [output '/' seed{1}];
-group_ef = replaceCellSubstring(adni,'seed', seed{1});
-fwhm_varatio = -100;
-
-for i = 1:length(group_ef)
-    file = group_ef{i};
-    if ~exist(file,'file'); group_ef{i} = []; end
+		for i = 1:length(group_ef)
+			file = group_ef{i};
+			if ~exist(file,'file'); group_ef{i} = []; end
+		end
+		group_ef = group_ef(~cellfun('isempty', group_ef));
+		save([outputBase '.mat']);
+	end
 end
-group_ef = group_ef(~cellfun('isempty', group_ef));
-save([outputBase '.mat']);
 
+clear;
+output = '/data/data03/wang/output2/';
+dataset = 'mcsa'; groups = {'cn', 'mci', 'ad'};
+data = readingXlsx(dataset);
+
+for seed = {'lA' 'lM' 'lP' 'rA' 'rM' 'rP'}
+	for patientGroup = groups
+		outputBase = [output '/' seed{1} '_' patientGroup{1} '_' dataset];
+		group_ef = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});
+		fwhm_varatio = -100;
+
+		for i = 1:length(group_ef)
+			file = group_ef{i};
+			if ~exist(file,'file'); group_ef{i} = []; end
+		end
+		group_ef = group_ef(~cellfun('isempty', group_ef));
+		save([outputBase '.mat']);
+	end
 end
