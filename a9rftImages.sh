@@ -1,3 +1,7 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]; then echo "Usage: $0 <mincFile>"; exit; fi
+
 function determineDF () {
 	df=0
 	if grep -q "adni" <<< "$i"; then
@@ -13,10 +17,8 @@ function determineDF () {
 	df=`expr $df - 2`;
 }
 
-for h in `ls /data/data03/wang/output2/*.mnc`; do
-	i=`basename $h .mnc`
-	output=`dirname $h`/$i
-	mkdir -p "$output"
-	determineDF
-	runRFT.sh $h 6 "$df" "$output"
-done
+i=`basename $1 .mnc`
+output=`dirname $1`/$i
+mkdir -p "$output"
+determineDF
+runRFT.sh $1 6 "$df" "$output"
