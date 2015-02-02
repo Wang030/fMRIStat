@@ -1,5 +1,7 @@
 function combiningSubjects(outputBase, group_ef, fwhm_varatio)
 
+addpath(genpath('/opt/matlab7.5/toolbox/fmristat')); addpath(genpath('/opt/matlab12b/toolbox/emma'),'-end');
+
 % Create the equivalent SD
 group_sd = replaceCellSubstring(group_ef,'_ef.mnc','_sd.mnc');
 
