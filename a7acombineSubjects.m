@@ -1,8 +1,8 @@
-output = '/data/data03/wang/output2/';
 dataset = 'adni'; groups = {'cn', 'emci', 'lmci', 'ad'};
+output = '/data/data03/wang/output/20150204_PCC_adni/';
 data = readingXlsx(dataset);
 
-for seed = {'lA' 'lM' 'lP' 'rA' 'rM' 'rP'}
+for seed = {'PCC'}
 	for patientGroup = groups
 		outputBase = [output '/' seed{1} '_' patientGroup{1} '_' dataset];
 		group_t = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});
@@ -18,11 +18,11 @@ for seed = {'lA' 'lM' 'lP' 'rA' 'rM' 'rP'}
 end
 
 clear;
-output = '/data/data03/wang/output2/';
 dataset = 'mcsa'; groups = {'cn', 'mci', 'ad'};
+output = '/data/data03/wang/output/20150204_PCC_mcsa/';
 data = readingXlsx(dataset);
 
-for seed = {'lA' 'lM' 'lP' 'rA' 'rM' 'rP'}
+for seed = {'PCC'}
 	for patientGroup = groups
 		outputBase = [output '/' seed{1} '_' patientGroup{1} '_' dataset];
 		group_t = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});

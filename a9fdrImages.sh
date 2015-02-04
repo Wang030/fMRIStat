@@ -1,6 +1,8 @@
 #!/bin/sh
 
-if [ $# -ne 1 -a $# -ne 2 ]; then echo "Usage: $0 <mincFile> (maskFile)"; exit; fi
+if [ $# -ne 1 -a $# -ne 2 ]; then echo "Usage: $0 <file> (maskFile)"; exit; fi
+
+if [ -n "$2" ]; then mask="$2"; else mask="/data/data03/wang/input/20140805_ADNI/fMRIStat/resampledMask.mnc"; fi
 
 function determineDF () {
 	df=0
@@ -18,7 +20,7 @@ function determineDF () {
 }
 
 i=`basename $1 .mnc`
-output=`dirname $1`/$i
-mkdir -p "$output"
 determineDF
-runRFT.sh $1 6 "$df" "$output" "$2"
+fdr_threshold --twosided --independent --clobber --mask "$mask" "$1" "$df" 0.05 mask.mnc
+mincmask -clobber "$1" mask.mnc ${i}_fdr.mnc
+rm mask.mnc
