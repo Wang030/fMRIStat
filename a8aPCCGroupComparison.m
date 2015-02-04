@@ -9,7 +9,6 @@ covariates = {
     {'SITEID', 'apoe', 'FD'
     };
 
-covariates = {''};
 % 1v4 adni
 for i = 1:length(covariates)
     clear data;
