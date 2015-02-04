@@ -1,12 +1,12 @@
-function data = readingXlsx(dataset)
+function data = readingXlsx(dataset, covariates)
 
 switch dataset
 	case 'mcsa'
-		covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge'};
+		if ~exist(covariates,'var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge'}; end
 		groups = {'cn', 'useless', 'mci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2';
 	case 'adni'
-		covariates = {'SITEID', 'apoe', 'PTGENDER', 'PTEDUCAT', 'scanAge'}; % 'amyloid' 'MMSCORE'
+		if ~exist(covariates,'var'); covariates = {'SITEID', 'apoe', 'PTGENDER', 'PTEDUCAT', 'scanAge'}; end % 'amyloid' 'MMSCORE'
 		groups = {'cn', 'emci', 'lmci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2';
 	otherwise
