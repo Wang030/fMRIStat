@@ -35,26 +35,30 @@ for i = groups
 end
 
 for i = 1:size(xlsx,1)
-    if ~strcmp(xlsx{i,colDataset},dataset); continue; end 
-    j = xlsx{i,colDiag};
+	flag = 0;
+    if ~strcmp(xlsx{i,colDataset},dataset); continue; end % If not the desired dataset, skip/ignore
+    j = xlsx{i,colDiag}; % Diagnosis
     
-    flag = 0;
-    covariatesRow = size(data.(groups{j}).covariates,1) + 1;
+    try
+        data.(groups{j}).files{end+1,1} = [locationBase '/' xlsx{i,colFile}];
+    catch ME
+		flag = 1;
+    end
+	
+    rowPosition = length(data.(groups{j}).files);
     if ~exist('colCovariates','var'); data.(groups{j}).covariates = []; end
     for k = 1:length(colCovariates)
+        if isnan(xlsx{i,colCovariates{k}}); flag = 1; break; end % If data is missing, flag it
         try
-            data.(groups{j}).covariates(covariatesRow,k) = xlsx{i,colCovariates{k}};
+            data.(groups{j}).covariates(rowPosition,k) = xlsx{i,colCovariates{k}};
         catch ME
             flag = 1;
     	    break;
         end
     end
-    if (flag == 1); continue; end
     
-    try
-        data.(groups{j}).files{end+1,1} = [locationBase '/' xlsx{i,colFile}];
-    catch ME
-        continue;
+    if (flag == 1);
+        data.(groups{j}).files(end,:) = [];
+        data.(groups{j}).covariates(end,:) = [];
     end
-
 end
