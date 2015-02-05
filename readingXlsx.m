@@ -43,6 +43,7 @@ for i = 1:size(xlsx,1)
         continue;
     end
     covariatesRow = size(data.(groups{j}).covariates,1) + 1;
+    if ~exist('colCovariates','var'); data.(groups{j}).covariates = []; continue; end
     for k = 1:length(colCovariates)
         try
             data.(groups{j}).covariates(covariatesRow,k) = xlsx{i,colCovariates{k}};
