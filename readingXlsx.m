@@ -35,20 +35,26 @@ for i = groups
 end
 
 for i = 1:size(xlsx,1)
-    if ~strcmp(xlsx{i,colDataset},dataset); continue; end
+    if ~strcmp(xlsx{i,colDataset},dataset); continue; end 
     j = xlsx{i,colDiag};
+    
+    flag = 0;
+    covariatesRow = size(data.(groups{j}).covariates,1) + 1;
+    if ~exist('colCovariates','var'); data.(groups{j}).covariates = []; end
+    for k = 1:length(colCovariates)
+        try
+            data.(groups{j}).covariates(covariatesRow,k) = xlsx{i,colCovariates{k}};
+        catch ME
+            flag = 1;
+    	    break;
+        end
+    end
+    if (flag == 1); continue; end
+    
     try
         data.(groups{j}).files{end+1,1} = [locationBase '/' xlsx{i,colFile}];
     catch ME
         continue;
     end
-    covariatesRow = size(data.(groups{j}).covariates,1) + 1;
-    if ~exist('colCovariates','var'); data.(groups{j}).covariates = []; continue; end
-    for k = 1:length(colCovariates)
-        try
-            data.(groups{j}).covariates(covariatesRow,k) = xlsx{i,colCovariates{k}};
-        catch ME
-           continue;
-        end
-    end
+
 end
