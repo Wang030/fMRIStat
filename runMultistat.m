@@ -1,6 +1,6 @@
 function runMultistat(group1_files, group2_files, group1_covariates, group2_covariates, outputBase)
 
-addpath(genpath('/opt/matlab12b/toolbox/emma'));
+addpath(genpath('/opt/matlab12b/toolbox/emma'),'-end');
 addpath(genpath('/opt/matlab7.5/toolbox/fmristat'));
 
 input_files_ef = [replaceCellSubstring(group1_files,'_t', '_ef') replaceCellSubstring(group2_files,'_t', '_ef')]';
@@ -15,6 +15,6 @@ X = [X Y Z];
 
 output_file_base{1} = outputBase;
 which_stats = '_t';
-fwhm_varatio = -10;
+fwhm_varatio = -100;
 
 my_multistat(input_files_ef,input_files_sd,[],[],X,contrast,output_file_base,which_stats,fwhm_varatio);

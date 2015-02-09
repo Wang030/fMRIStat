@@ -1,12 +1,12 @@
 dataset = 'adni'; groups = {'cn', 'emci', 'lmci', 'ad'};
-output = '/data/data03/wang/output/20150204_PCC_adni_40fwhm/';
+output = '/data/data03/wang/output/20150207_adniPlus/';
 data = readingXlsx(dataset);
 
-for seed = {'PCC'}
+for seed = {'PCC', 'lA', 'rA'}
 	for patientGroup = groups
 		outputBase = [output '/' seed{1} '_' patientGroup{1} '_' dataset];
 		group_t = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});
-		fwhm_varatio = -10;
+		fwhm_varatio = -40;
 
 		for i = 1:length(group_t)
 			file = group_t{i};

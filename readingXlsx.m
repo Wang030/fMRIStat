@@ -6,7 +6,7 @@ switch dataset
 		groups = {'cn', 'useless', 'mci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2';
 	case 'adni'
-		if ~exist('covariates','var'); covariates = {'SITEID', 'apoe', 'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD',}; end % 'amyloid' 'MMSCORE'
+		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD', 'SITEID'}; end % 'amyloid' 'MMSCORE' 'apoe'
 		groups = {'cn', 'emci', 'lmci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2';
 	otherwise
@@ -46,18 +46,19 @@ for i = 1:size(xlsx,1)
     end
 	
     rowPosition = length(data.(groups{j}).files);
-    if ~exist('colCovariates','var'); data.(groups{j}).covariates = []; end
-    for k = 1:length(colCovariates)
+    if ~exist('colCovariates','var'); data.(groups{j}).covariates = [];
+    else for k = 1:length(colCovariates)
         if isnan(xlsx{i,colCovariates{k}}); flag = 1; break; end % If data is missing, flag it
         try
             data.(groups{j}).covariates(rowPosition,k) = xlsx{i,colCovariates{k}};
         catch ME
+            data.(groups{j}).covariates(rowPosition,k) = 5; % To ensure there is at least a new row created
             flag = 1;
     	    break;
         end
-    end
+    end; end
     
-    if (flag == 1);
+    if (flag == 1); % If data is missing, delete generated row
         data.(groups{j}).files(end,:) = [];
         data.(groups{j}).covariates(end,:) = [];
     end

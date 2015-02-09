@@ -6,7 +6,7 @@ data = readingXlsx('mcsa');
 %% rP
 seed = '/rP';
 % 1v4 mcsa
-outputBase = ['/data/data03//home/wang/Documents/bin/fMRIStatwang/output2/' seed '_1v4_mcsa'];
+outputBase = ['/data/data03/wang/output2/' seed '_1v4_mcsa'];
 group1_files = replaceCellSubstring(data.cn.files,'/seed', seed);
 group2_files = replaceCellSubstring(data.ad.files,'/seed', seed);
 group1_covariates = data.cn.covariates;

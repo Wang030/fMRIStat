@@ -12,6 +12,7 @@ contrast = 1;
 output_file_base{1} = [inputFolder '/data2/' filename '_multi'];
 mkdir([inputFolder '/data2/']);
 which_stats='_t _ef _sd';
+fwhm_varatio = -10;
 
 if exist([output_file_base{1} '_t.mnc'],'file'); return; end
-my_multistat(input_ef,input_sd,1,[],X,contrast,output_file_base,which_stats,[]);
+my_multistat(input_ef,input_sd,1,[],X,contrast,output_file_base,which_stats,fwhm_varatio);
