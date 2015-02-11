@@ -15,6 +15,6 @@ X = [X Y Z];
 
 output_file_base{1} = outputBase;
 which_stats = '_t';
-fwhm_varatio = -100;
+fwhm_varatio = -40;
 
 my_multistat(input_files_ef,input_files_sd,[],[],X,contrast,output_file_base,which_stats,fwhm_varatio);
