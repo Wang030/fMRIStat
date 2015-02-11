@@ -1,4 +1,4 @@
-function runMultistat(group1_files, group2_files, group1_covariates, group2_covariates, outputBase)
+function compareSubjects(group1_files, group2_files, group1_covariates, group2_covariates, outputBase)
 
 addpath(genpath('/opt/matlab12b/toolbox/emma'),'-end');
 addpath(genpath('/opt/matlab7.5/toolbox/fmristat'));

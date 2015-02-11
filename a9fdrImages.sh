@@ -10,7 +10,7 @@ function determineDF () {
 		if grep -q "1" <<< "$i"; then df=`expr $df + 60`; fi
 		if grep -q "2" <<< "$i"; then df=`expr $df + 53`; fi
 		if grep -q "3" <<< "$i"; then df=`expr $df + 40`; fi
-		if grep -q "4" <<< "$i"; then df=`expr $df + 37`; fi
+		if grep -q "4" <<< "$i"; then df=`expr $df + 31`; fi
 	elif grep -q "mcsa" <<< "$i"; then
 		if grep -q "1" <<< "$i"; then df=`expr $df + 17`; fi
 		if grep -q "3" <<< "$i"; then df=`expr $df + 12`; fi
