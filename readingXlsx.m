@@ -39,12 +39,13 @@ for i = 1:size(xlsx,1)
     if ~strcmp(xlsx{i,colDataset},dataset); continue; end % If not the desired dataset, skip/ignore
     j = xlsx{i,colDiag}; % Diagnosis
     
-    try
+    try % If data don't exist
         data.(groups{j}).files{end+1,1} = [locationBase '/' xlsx{i,colFile}];
     catch ME
 		flag = 1;
     end
-	
+	if isnan(j); continue; end
+    
     rowPosition = length(data.(groups{j}).files);
     if ~exist('colCovariates','var'); data.(groups{j}).covariates = [];
     else for k = 1:length(colCovariates)
