@@ -1,12 +1,12 @@
 dataset = 'adni'; groups = {'cn', 'emci', 'lmci', 'ad'};
-output = '/data/data03/wang/output/20150216_afterQC/';
+output = '/data/data03/wang/output/20150220_fwhm30/';
 data = readingXlsx(dataset);
 
-for seed = {'PCC', 'lA', 'lP'}
+for seed = {'lA', 'lP'} % seed = {'PCC', 'lA', 'lP'}
 	for patientGroup = groups
 		outputBase = [output '/avg_' seed{1} '_' patientGroup{1} '_' dataset];
 		group_t = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});
-		fwhm_varatio = -70;
+		fwhm_varatio = -30;
 
 		for i = 1:length(group_t)
 			file = group_t{i};
@@ -16,7 +16,7 @@ for seed = {'PCC', 'lA', 'lP'}
 		save([outputBase '.mat']);
 	end
 end
-
+%{
 clear;
 dataset = 'mcsa'; groups = {'cn', 'mci', 'ad'};
 output = '/data/data03/wang/output/20150216_afterQC/';
@@ -26,7 +26,7 @@ for seed = {'PCC', 'lA', 'lP'}
 	for patientGroup = groups
 		outputBase = [output '/avg_' seed{1} '_' patientGroup{1} '_' dataset];
 		group_t = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});
-		fwhm_varatio = -70;
+		fwhm_varatio = -30;
 
 		for i = 1:length(group_t)
 			file = group_t{i};
@@ -36,3 +36,4 @@ for seed = {'PCC', 'lA', 'lP'}
 		save([outputBase '.mat']);
 	end
 end
+%}

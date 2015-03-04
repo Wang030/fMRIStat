@@ -11,7 +11,7 @@ input_ef = input_ef';
 input_sd = input_sd';
 
 contrast = 1;
-which_stats='_t';
+which_stats='_t _fwhm';
 output_file_base{1} = outputBase;
 
 %% Getting the local computer's name

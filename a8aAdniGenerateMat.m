@@ -1,6 +1,6 @@
 % Input information
 data = readingXlsx('adni');
-outputFolder = '/data/data03/wang/output/20150216_afterQC';
+outputFolder = '/data/data03/wang/output/20150220_fwhm30';
 
 % Choose groups of interest
 
@@ -105,7 +105,7 @@ group2_files = replaceCellSubstring(data.ad.files,'seed', 'lP');
 group1_covariates = [];
 group2_covariates = [];
 save([outputBase '.mat']);
-
+%{
 %% Assymetry in controls
 % Anterior adni
 outputBase = [outputFolder '/zlvrA_1_adni'];
@@ -121,3 +121,4 @@ group2_files = replaceCellSubstring(data.cn.files,'seed', 'rP');
 group1_covariates = [];
 group2_covariates = [];
 save([outputBase '.mat']);
+%}
