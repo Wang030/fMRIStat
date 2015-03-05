@@ -1,23 +1,20 @@
+#!/bin/sh
 source /home/vfonov/quarantine/init.sh
 
-for i in `ls /data/data01/wang/output/AAIC_2013/correlation/*.csv`; do
-outputFile=`basename $i .csv`
-testName=`echo $outputFile | sed "s:_.*::"`
-outputFolder=`dirname $i`
+if [ $# -ne 3 ]; then echo "Usage: $0 csvFile outputFile testName"; exit; fi
+
+csvFile="$1"
+outputFile="$2"
+testName="$3"
 
 R --no-save << EOF
 rm(list=ls(all=TRUE))
 library(RMINC)
 
-gf1 <- read.csv("$i") # File Model, Must be without double quotations and separated by commas
+gf1 <- read.csv("$1") # File Model, Must be without double quotations and separated by commas
 
-vs1 <- mincLm( filename ~ $testName + datasetN, gf1) # Add Covariates here using group + etc.
+vs1 <- mincLm( filename ~ "$testName" + datasetN, gf1) # Add Covariates here using group + etc.
 vs1[is.na(vs1)] <- 1
-mincWriteVolume(vs1,"$outputFolder/${outputFile}.mnc", "${testName}")
+mincWriteVolume(vs1,$outputFile, $testName)
 q()
 EOF
-
-mincmath -clob -mult $outputFolder/${outputFile}.mnc /data/data01/wang/references/mni_icbm152_t1_tal_nlin_sym_09a_mask_mcsaDimensions.mnc.gz $outputFolder/${outputFile}_mask.mnc
-rm $outputFolder/${outputFile}.mnc
-
-done
