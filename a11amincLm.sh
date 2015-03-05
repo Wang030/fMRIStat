@@ -13,7 +13,7 @@ library(RMINC)
 
 gf1 <- read.csv("$1") # File Model, Must be without double quotations and separated by commas
 
-vs1 <- mincLm( filename ~ "$testName" + datasetN, gf1) # Add Covariates here using group + etc.
+vs1 <- mincLm( filename ~ $testName + motion + site + gender + age, gf1) # Add Covariates here using group + etc.
 vs1[is.na(vs1)] <- 1
 mincWriteVolume(vs1,$outputFile, $testName)
 q()
