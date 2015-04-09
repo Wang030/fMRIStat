@@ -4,8 +4,8 @@ function runFmrilm(input_file, output_base, name, x, y, z, slice_number, time_fr
 if exist([output_base '_mag_t.mnc'], 'file'); return; end
 
 %Adding paths
-addpath(genpath('/opt/matlab7.5/toolbox/fmristat'));
-addpath(genpath('/opt/matlab12b/toolbox/emma'),'-end');
+
+
 system('hostname');
 %startIndex = regexpi(input_file,'subject');
 %endIndex = regexpi(input_file,'.mnc');
