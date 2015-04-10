@@ -1,18 +1,20 @@
 #!/bin/sh
 
-if [ $# -ne 2 ]; then echo "Usage: $0 files fileWithDesiredTests"; exit; fi
+if [ $# -lt 2 ]; then echo "Usage: $0 fileWithDesiredTests files"; exit; fi
 	#threshold="-ceil 100 -floor 3.5"
 	#mask="-mask something -mask_binvalue 1"
 	#whatUwant="-volume -mean -stddev"
-for i in $1; do
-	subj=`echo $i | sed "s:\([0-9]\{3,4\}\).*:\1:1"`
-	sess=`echo $i | sed "s:sess\([0-9]*\).*:\1:"`
-	testsData=""
-	cat $2 |
+	testFile="$1"; shift
+while [ -f "$1" ]; do
+	subj=`basename $1 | sed "s:subject\([0-9]\{3,4\}\).*:\1:"`
+	sess=`basename $1 | sed "s:.*session\([0-9]*\).*:\1:"`
+	echo -n "$subj $sess"
+	cat $testFile |
 	while read test; do
-		stat=`mincstats -quiet $test $i`
-		testsData=" $stat"
+		stat=`mincstats -quiet $test $1`
+		stat=`echo $stat | tr -d '\r'`
+		echo -n " $stat"
 	done
-	echo $subj $sess $testsData
+		echo ""
+	shift
 done
-fi
