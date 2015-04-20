@@ -5,6 +5,11 @@ switch dataset
 		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD'}; end
 		groups = {'cn', 'useless', 'mci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2';
+	case 'mcsaFtd'
+		if ~exist('covariates','var'); end %covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD'}; end
+		groups = {'cn', 'useless', 'useless2','useless3', 'useless4','ftd'};
+		locationBase = '/data/data03/wang/input/2150327_mcsaFtd/fMRIStat/seed/data2';
+		dataset = 'mcsa';
 	case 'adni'
 		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD', 'SITEID'}; end % 'amyloid' 'MMSCORE' 'apoe'
 		groups = {'cn', 'emci', 'lmci', 'ad'};
@@ -13,7 +18,7 @@ switch dataset
 		error('Dataset not recognized. Please try again.');
 end
 
-[~,~,xlsx] = xlsread('Book1.xlsx');
+[~,~,xlsx] = xlsread('BookFtd.xlsx'); %Specify spreadsheet file here
 for i = 1:size(xlsx,2)
     switch xlsx{1,i}
         case 'diag2'; colDiag = i;
