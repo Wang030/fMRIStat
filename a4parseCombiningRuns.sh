@@ -9,9 +9,9 @@ for j in `ls ${1}`; do
 	for i in `ls $inputFolder/data/*_mag_t.mnc`; do
 		subject=`basename $i | sed "s:subject::" | sed "s:_.*::"`
 		session=`basename $i | sed "s:.*session::" | sed "s:_.*::"`
-		echo "combiningRuns('$inputFolder','$subject','$session');" >> $tempFile
+		command="combiningRuns('$inputFolder','$subject','$session');"
+		outputFile="$inputFolder/data2/subject${subject}_session${session}_multi_t.mnc:${command}" >> ${tempFile}
 	done
-
-	cat $tempFile | sort -u
-	rm $tempFile
+	cat ${tempFile} | sort -u
+	rm ${tempFile}
 done
