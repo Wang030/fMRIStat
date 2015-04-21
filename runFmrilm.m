@@ -1,7 +1,7 @@
 function runFmrilm(input_file, unsmoothed_image, output_base, name, x, y, z, slice_number, time_frames, tr, voxelType)
 
 % Terminate if file exists already
-if exist([output_base '_mag_t.mnc'], 'file'); return; end
+%if exist([output_base '_mag_t.mnc'], 'file'); return; end
 
 %Adding paths
 addpath('/home/wang/Documents/MATLAB/fmristat','-end');
@@ -23,7 +23,7 @@ if ~strcmp(voxelType,'voxel')
 	h=openimage(unsmoothed_image);
 	voxel = voxelW'; % To make worldtovoxel work
 	voxel = worldtovoxel(h,voxel,'xyzorder zerobase noflip');
-	voxel = round(voxel)
+	voxel = round(voxel);
 	closeimage(h);
 else
 	voxel = [x y z]'

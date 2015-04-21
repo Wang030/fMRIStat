@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-dataset = 'mcsa'; groups = {'cn', 'emci', 'lmci', 'ad'};
-output = '/data/data03/wang/output/20150216_afterQCfwhm6/';
-=======
 dataset = 'mcsaFtd'; groups = {'cn', 'ftd'};
 output = '/data/data03/wang/output/20150420_ftdResults/';
->>>>>>> 606890bf9368cd1a051be5644725181818fa4eb1
 data = readingXlsx(dataset);
 
 for seed = {'lA', 'lP', 'PCC', 'rA', 'rP'}
@@ -20,8 +15,4 @@ for seed = {'lA', 'lP', 'PCC', 'rA', 'rP'}
 		group_t = group_t(~cellfun('isempty', group_t));
 		save([outputBase '.mat']);
 	end
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> 606890bf9368cd1a051be5644725181818fa4eb1

@@ -3,7 +3,7 @@
 names=(lA lM lP rA rM rP PCC)
 x=(-28 -28 -28 28 28 28 0)
 y=(-16 -27 -37 -16 -27 -37 -53)
-z=(-20 -13 -4 -20 -13 -4 -26)
+z=(-20 -13 -4 -20 -13 -4 26)
 
 if [ $# -ne 1 ]; then echo "Usage: $0 <inputFolder (/data/data03/wang/input/20150119_mcsa/preprocessing/fmri_s/)>"; exit; fi
 
