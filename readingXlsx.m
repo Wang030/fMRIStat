@@ -24,6 +24,7 @@ for i = 1:size(xlsx,2)
         case 'diag2'; colDiag = i;
         case 'dataset'; colDataset = i;
         case 'filename'; colFile = i;
+        case 'qc2'; colQc = i;
     end
     for j = 1:length(covariates)
         if strcmp(covariates{1,j},xlsx{1,i})
@@ -40,8 +41,9 @@ for i = groups
 end
 
 for i = 1:size(xlsx,1)
-	flag = 0;
+    flag = 0;
     if ~strcmp(xlsx{i,colDataset},dataset); continue; end % If not the desired dataset, skip/ignore
+    if ~isempty(xlsx{i,colQc}); continue; end % Skip if there is a mention in the qc column
     j = xlsx{i,colDiag}; % Diagnosis
     
     try % If data don't exist
@@ -49,7 +51,7 @@ for i = 1:size(xlsx,1)
     catch ME
 		flag = 1;
     end
-	if isnan(j); continue; end
+    if isnan(j); continue; end
     
     rowPosition = length(data.(groups{j}).files);
     if ~exist('colCovariates','var'); data.(groups{j}).covariates = [];
