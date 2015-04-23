@@ -23,11 +23,11 @@ if ~strcmp(voxelType,'voxel')
 	h=openimage(unsmoothed_image);
 	voxel = voxelW'; % To make worldtovoxel work
 	voxel = worldtovoxel(h,voxel,'xyzorder zerobase noflip');
-	voxel = round(voxel);
+	voxel = round(voxel');
 	closeimage(h);
 else
 	voxel = [x y z]'
-end;
+end
 
 % Voxel Enlargment
 x = voxel(1)-1:voxel(1)+1; % radius for seed 3x3x3voxels
@@ -35,7 +35,6 @@ y = voxel(2)-1:voxel(2)+1;
 z = voxel(3)-1:voxel(3)+1;
 [x,y,z] = meshgrid(x,y,z);
 voxel = [x(:),y(:),z(:)]; % Inversed right there
-voxel = voxel';
 
 % Parameters retrieval
 if isempty(time_frames)

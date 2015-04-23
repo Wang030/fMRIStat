@@ -14,7 +14,7 @@ for i in `ls $input/*.mnc`; do
 		info=`echo $i | sed "s:.*subject:subject:" | sed "s:\.mnc*::"`
 		unsmoothed=`echo $i | sed "s:/fmri_s/:/fmri/:"`
 		mkdir -p $output
-		matlabCommand="runFmrilm('$i','$unsmoothed','$output/$info','${names[j]}',${x[j]},${y[j]},${z[j]});"
+		matlabCommand="runFmrilm('$i','$unsmoothed','$output/$info','${names[j]}',${x[j]},${y[j]},${z[j]}),[],[],[];"
 		outputFile=`echo $matlabCommand | sed "s:.*'/data:/data:" | sed "s:'.*::1"`
 		echo "${outputFile}_mag_t.mnc:$matlabCommand"
 	done
