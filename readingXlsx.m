@@ -5,20 +5,23 @@ switch dataset
 		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD'}; end
 		groups = {'cn', 'useless', 'mci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_mcsa/fMRIStat/seed/data2';
+		xlsFile = 'Book1.xlsx';
 	case 'mcsaFtd'
-		if ~exist('covariates','var'); covariates = {}; end %covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD'}; end
+		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD'}; end
 		groups = {'cn', 'useless', 'useless2','useless3', 'useless4','ftd'};
 		locationBase = '/data/data03/wang/input/20150327_mcsaFtd/fMRIStat/seed/data2';
 		dataset = 'mcsa';
+		xlsFile = 'BookFtd.xlsx';
 	case 'adni'
 		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD', 'SITEID'}; end % 'amyloid' 'MMSCORE' 'apoe'
 		groups = {'cn', 'emci', 'lmci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2';
+		xlsFile = 'Book1.xlsx';
 	otherwise
 		error('Dataset not recognized. Please try again.');
 end
 
-[~,~,xlsx] = xlsread('BookFtd.xlsx'); %Specify spreadsheet file here
+[~,~,xlsx] = xlsread(xlsFile); % Read .xlsx file
 for i = 1:size(xlsx,2)
     switch xlsx{1,i}
         case 'diag2'; colDiag = i;
@@ -43,7 +46,7 @@ end
 for i = 1:size(xlsx,1)
     flag = 0;
     if ~strcmp(xlsx{i,colDataset},dataset); continue; end % If not the desired dataset, skip/ignore
-    if ~isempty(xlsx{i,colQc}); continue; end % Skip if there is a mention in the qc column
+    if ~isnan(xlsx{i,colQc}); continue; end % Skip if there is a mention in the qc column
     j = xlsx{i,colDiag}; % Diagnosis
     
     try % If data don't exist

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $# -ne 4 -a $# -ne 5 ]; then echo "Usage: $0 <file> <smoothing> <degrees of freedom> <output> (maskFile)"; exit; fi
+if [ $# -ne 4 -a $# -ne 5 ]; then echo "Usage: $0 <file> <smoothing> <degrees of freedom> <outputFolder> (maskFile)"; exit; fi
 
 if [ -n "$5" ]; then mask="$5"; else mask="/data/data03/wang/input/20140805_ADNI/fMRIStat/resampledMask.mnc"; fi
 

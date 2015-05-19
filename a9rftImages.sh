@@ -11,10 +11,12 @@ function determineDF () {
 		if grep -q "2" <<< "$i"; then df=`expr $df + 48`; fi
 		if grep -q "3" <<< "$i"; then df=`expr $df + 35`; fi
 		if grep -q "4" <<< "$i"; then df=`expr $df + 31`; fi
-	elif grep -q "mcsa" <<< "$i"; then
+	else
+	#elif grep -q "mcsa" <<< "$i"; then
 		if grep -q "1" <<< "$i"; then df=`expr $df + 17`; fi
 		if grep -q "3" <<< "$i"; then df=`expr $df + 12`; fi
 		if grep -q "4" <<< "$i"; then df=`expr $df + 9`; fi
+		if grep -q "6" <<< "$i"; then df=`expr $df + 10`; fi
 	fi
 	df=`expr $df - 2`;
 }
