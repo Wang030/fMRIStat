@@ -13,6 +13,6 @@ for i in `cat "$2"`; do
 	fi
 	if [ ! -f "$fileLocation" ]; then
 		echo -n "$matlabScript "
-		runToQsub.sh "$1" "$matlabScript"
+		~/Documents/bin/fMRIStat/runMatlabScript.sh "$1" "$matlabScript"
 	fi
 done

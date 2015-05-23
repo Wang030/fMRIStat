@@ -1,8 +1,8 @@
 dataset = 'mcsaFtd'; groups = {'cn', 'ftd'};
-output = '/data/data03/wang/output/20150420_ftdResults/';
+output = '/data/data03/wang/output/20150520_ftdResultsWithScrubbing/';
 data = readingXlsx(dataset);
 
-for seed = {'rA', 'rP'} % lA lP PCC
+for seed = {'rA', 'rP', 'lA', 'lP', 'PCC'}
 	for patientGroup = groups
 		outputBase = [output '/avg_' seed{1} '_' patientGroup{1} '_' dataset];
 		group_t = replaceCellSubstring(data.(patientGroup{1}).files,'seed', seed{1});
