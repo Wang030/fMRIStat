@@ -14,6 +14,24 @@ group1_covariates = data.cn.covariates;
 group2_covariates = data.ftd.covariates;
 save([outputBase '.mat']);
 
+%% lA
+seed = 'lA';
+outputBase = [outputFolder '/gc_' seed '_1v6_mcsaFtd'];
+group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
+group2_files = replaceCellSubstring(data.ftd.files, 'seed', seed);
+group1_covariates = data.cn.covariates;
+group2_covariates = data.ftd.covariates;
+save([outputBase '.mat']);
+
+%% lP
+seed = 'lP';
+outputBase = [outputFolder '/gc_' seed '_1v6_mcsaFtd'];
+group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
+group2_files = replaceCellSubstring(data.ftd.files, 'seed', seed);
+group1_covariates = data.cn.covariates;
+group2_covariates = data.ftd.covariates;
+save([outputBase '.mat']);
+
 %% rP
 seed = 'rP';
 % 1v6 mcsaFtd
