@@ -1,5 +1,5 @@
 dataset = 'adni'; groups = {'cn', 'emci', 'lmci', 'ad'};
-output = '/data/data03/wang/output/20150623_reRunWithHippocampalAtrophy/';
+output = '/data/data03/wang/output/20150623_newNetworkArchitecture/';
 data = readingXlsx(dataset);
 
 for fwhm_varatio = [-100 -70 -50 -30 -25 -15 -10 -5 0]
