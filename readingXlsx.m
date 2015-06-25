@@ -13,7 +13,7 @@ switch dataset
 		dataset = 'mcsa';
 		xlsFile = 'BookFtd.xlsx';
 	case 'adni'
-		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD', 'SITEID'}; end % 'amyloid' 'MMSCORE' 'apoe'
+		if ~exist('covariates','var'); covariates = {'PTGENDER', 'PTEDUCAT', 'scanAge', 'FD', 'SITEID', 'T_hipp'}; end
 		groups = {'cn', 'emci', 'lmci', 'ad'};
 		locationBase = '/data/data03/wang/input/20150119_ADNI/fMRIStat/seed/data2';
 		xlsFile = 'Book1.xlsx';
