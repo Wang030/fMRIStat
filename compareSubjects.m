@@ -1,4 +1,4 @@
-function compareSubjects(group1_files, group2_files, group1_covariates, group2_covariates, outputBase)
+function compareSubjects(group1_files, group2_files, group1_covariates, group2_covariates, outputBase, fwhm_varatio)
 
 addpath(genpath('/opt/matlab12b/toolbox/emma'),'-end');
 addpath(genpath('/opt/matlab7.5/toolbox/fmristat'));
@@ -15,6 +15,6 @@ X = [X Y Z];
 
 output_file_base{1} = outputBase;
 which_stats = '_t';
-fwhm_varatio = -30;
+if ~exist('fwhm_varatio','var'); fwhm_varatio = -100; end
 
 my_multistat(input_files_ef,input_files_sd,[],[],X,contrast,output_file_base,which_stats,fwhm_varatio);

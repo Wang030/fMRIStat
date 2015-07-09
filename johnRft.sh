@@ -444,6 +444,7 @@ else
 		while read alpha beta ; do
 			for b in $beta ; do
 				for a in $alpha ; do
+					b=`printf '%.0f\n' $b`
 					if [ "$b" -ge "$cs" ] ; then
 						echo $a > ${out}/histk3_temp.txt
 					fi

@@ -1,6 +1,6 @@
 % Input information
-data = readingXlsx('adni');
-outputFolder = '/data/data03/wang/output/20150623_groupComparisonHippocampusAtrophy';
+data = readingXlsx('adni'); % You may want to integrate that into each test and call the specific covariates you want to include
+outputFolder = '/data/data03/wang/output/20150709_groupComparisonWithoutHippocampusAtrophy';
 
 % Choose groups of interest
 
@@ -10,22 +10,22 @@ seed = 'PCC';
 outputBase = [outputFolder '/gc_' seed '_1v4_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.ad.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.ad.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.ad.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v3 adni
 outputBase = [outputFolder '/gc_' seed '_1v3_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.lmci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.lmci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.lmci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v2 adni
 outputBase = [outputFolder '/gc_' seed '_1v2_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.emci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.emci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.emci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 
 %% lP
@@ -34,22 +34,22 @@ seed = 'lP';
 outputBase = [outputFolder '/gc_' seed '_1v4_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.ad.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.ad.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.ad.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v3 adni
 outputBase = [outputFolder '/gc_' seed '_1v3_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.lmci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.lmci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.lmci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v2 adni
 outputBase = [outputFolder '/gc_' seed '_1v2_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.emci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.emci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.emci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 
 %% lA
@@ -58,22 +58,22 @@ seed = 'lA';
 outputBase = [outputFolder '/gc_' seed '_1v4_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.ad.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.ad.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.ad.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v3 adni
 outputBase = [outputFolder '/gc_' seed '_1v3_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.lmci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.lmci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.lmci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v2 adni
 outputBase = [outputFolder '/gc_' seed '_1v2_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.emci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.emci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.emci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 
 %% rA
@@ -82,22 +82,22 @@ seed = 'rA';
 outputBase = [outputFolder '/gc_' seed '_1v4_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.ad.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.ad.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.ad.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v3 adni
 outputBase = [outputFolder '/gc_' seed '_1v3_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.lmci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.lmci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.lmci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v2 adni
 outputBase = [outputFolder '/gc_' seed '_1v2_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.emci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.emci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.emci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 
 %% rP
@@ -106,22 +106,22 @@ seed = 'rP';
 outputBase = [outputFolder '/gc_' seed '_1v4_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.ad.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.ad.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.ad.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v3 adni
 outputBase = [outputFolder '/gc_' seed '_1v3_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.lmci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.lmci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.lmci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 % 1v2 adni
 outputBase = [outputFolder '/gc_' seed '_1v2_adni'];
 group1_files = replaceCellSubstring(data.cn.files,'seed', seed);
 group2_files = replaceCellSubstring(data.emci.files,'seed', seed);
-group1_covariates = data.cn.covariates;
-group2_covariates = data.emci.covariates;
+group1_covariates = data.cn.covariates(:,1:end-1);
+group2_covariates = data.emci.covariates(:,1:end-1);
 save([outputBase '.mat']);
 
 %% Anterior-Posterior
