@@ -1,4 +1,4 @@
-function data = readingXlsx(dataset, covariates)
+function data = readingXlsx(dataset, covariates, xlsFile)
 
 switch dataset
 	case 'mcsa'
